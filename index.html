@@ -41,10 +41,25 @@
     strong { font-weight: 600; }
     a { color: var(--accent); }
     footer { margin-top: 48px; color: var(--muted); font-size: 0.9rem; }
+    .langs { display: flex; gap: 8px; margin: 0 0 24px; }
+    .langs button {
+      border: 0; background: var(--card); color: var(--text);
+      border-radius: 999px; padding: 8px 14px; font: inherit; cursor: pointer;
+    }
+    .langs button[aria-pressed="true"] { background: var(--accent); color: #241c0f; }
+    .panel { display: none; }
+    .panel.active { display: block; }
   </style>
 </head>
 <body>
   <main>
+    <nav class="langs" aria-label="Language">
+      <button type="button" data-lang="pl" aria-pressed="true">Polski</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+      <button type="button" data-lang="ru" aria-pressed="false">Русский</button>
+    </nav>
+
+    <article class="panel active" data-lang="pl">
     <h1>Fuel Now — Polityka prywatności</h1>
     <p class="effective">Obowiązuje od 22 sierpnia 2026</p>
 
@@ -109,6 +124,115 @@
     </p>
 
     <footer>Fuel Now — dziennik na urządzeniu. Bez serwerów, bez trackingu, bez OCR.</footer>
+    </article>
+
+    <article class="panel" data-lang="en">
+      <h1>Fuel Now — Privacy Policy</h1>
+      <p class="effective">Effective 22 August 2026</p>
+      <div class="summary">
+        <ul>
+          <li>Everything stays on your iPhone. Fuel Now 1.0 <strong>has no servers</strong>.</li>
+          <li>No account, no ad tracking, no analytics.</li>
+          <li>The app <strong>does not recognize food from a photo</strong>. You pick the product from a catalog.</li>
+        </ul>
+      </div>
+      <h2>Controller</h2>
+      <p>Clean Whale Sp. z o.o.<br />KRS 0000868230 · NIP 6751738063<br />ul. Grzegórzecka 43/2, 31-532 Kraków</p>
+      <p>Contact: <a href="mailto:ivan.shyla@cleanwhale.pl">ivan.shyla@cleanwhale.pl</a><br />GDPR: <a href="mailto:rodo@cleanwhale.pl">rodo@cleanwhale.pl</a></p>
+      <h2>What we store</h2>
+      <p>Only locally, in the app database on the device:</p>
+      <ul>
+        <li>meal and workout logs,</li>
+        <li>nutrition goal, eating habit, weekly budget,</li>
+        <li>weight (7-day average and targets),</li>
+        <li>fridge contents and shopping list,</li>
+        <li>“like / don’t like” pool,</li>
+        <li>local usage counters in Profile.</li>
+      </ul>
+      <p>We do not send this data to our servers. There is no Fuel Now cloud to sync with.</p>
+      <h2>What we don’t collect</h2>
+      <ul>
+        <li>accounts, email, or a cloud profile,</li>
+        <li>analytics, crash SDKs, advertising IDs,</li>
+        <li>location,</li>
+        <li>meal or grocery photos.</li>
+      </ul>
+      <h2>Permissions</h2>
+      <p><strong>Camera</strong> — barcode scanning only. The frame is not sent off the device.</p>
+      <p><strong>Notifications</strong> — local meal reminders. We do not use remote push from our servers.</p>
+      <p>The photo library is not used. Fuel Now does not promise OCR or label recognition.</p>
+      <h2>Deleting data</h2>
+      <p>Delete the app from the iPhone — every Fuel Now log goes with it. We have no copy.</p>
+      <h2>Children</h2>
+      <p>Fuel Now is not directed at children under 13.</p>
+      <h2>Changes</h2>
+      <p>The current version of this policy is at this URL, with a new effective date.</p>
+      <h2>Contact</h2>
+      <p><a href="mailto:ivan.shyla@cleanwhale.pl">ivan.shyla@cleanwhale.pl</a> · <a href="mailto:rodo@cleanwhale.pl">rodo@cleanwhale.pl</a></p>
+      <footer>Fuel Now — an on-device diary. No servers, no tracking, no OCR.</footer>
+    </article>
+
+    <article class="panel" data-lang="ru">
+      <h1>Fuel Now — Политика конфиденциальности</h1>
+      <p class="effective">Действует с 22 августа 2026</p>
+      <div class="summary">
+        <ul>
+          <li>Всё остаётся на iPhone. У Fuel Now 1.0 <strong>нет серверов</strong>.</li>
+          <li>Нет аккаунта, рекламного трекинга и аналитики.</li>
+          <li>Приложение <strong>не распознаёт еду по фото</strong>. Продукт выбираешь из каталога.</li>
+        </ul>
+      </div>
+      <h2>Оператор</h2>
+      <p>Clean Whale Sp. z o.o.<br />KRS 0000868230 · NIP 6751738063<br />ul. Grzegórzecka 43/2, 31-532 Kraków</p>
+      <p>Контакт: <a href="mailto:ivan.shyla@cleanwhale.pl">ivan.shyla@cleanwhale.pl</a><br />GDPR: <a href="mailto:rodo@cleanwhale.pl">rodo@cleanwhale.pl</a></p>
+      <h2>Что храним</h2>
+      <p>Только локально, в базе приложения на устройстве:</p>
+      <ul>
+        <li>записи приёмов пищи и тренировок,</li>
+        <li>цель питания, привычка, недельный бюджет,</li>
+        <li>вес (средняя 7 дней и цели),</li>
+        <li>содержимое холодильника и список покупок,</li>
+        <li>пул «люблю / не люблю»,</li>
+        <li>локальные счётчики в Профиле.</li>
+      </ul>
+      <p>Мы не отправляем эти данные на наши серверы. Облака Fuel Now нет.</p>
+      <h2>Чего не собираем</h2>
+      <ul>
+        <li>аккаунта, почты или облачного профиля,</li>
+        <li>аналитики, crash SDK, рекламных идентификаторов,</li>
+        <li>геолокации,</li>
+        <li>фото еды или покупок.</li>
+      </ul>
+      <h2>Разрешения</h2>
+      <p><strong>Камера</strong> — только скан штрихкодов. Кадр не уходит с устройства.</p>
+      <p><strong>Уведомления</strong> — локальные напоминания о приёме. Удалённого push с наших серверов нет.</p>
+      <p>Галерея не используется. Fuel Now не обещает OCR и не читает этикетки.</p>
+      <h2>Удаление данных</h2>
+      <p>Удали приложение с iPhone — исчезнут все записи Fuel Now. Копии у нас нет.</p>
+      <h2>Дети</h2>
+      <p>Fuel Now не предназначен для детей младше 13 лет.</p>
+      <h2>Изменения</h2>
+      <p>Актуальная версия этой политики — по этому адресу, с новой датой.</p>
+      <h2>Контакт</h2>
+      <p><a href="mailto:ivan.shyla@cleanwhale.pl">ivan.shyla@cleanwhale.pl</a> · <a href="mailto:rodo@cleanwhale.pl">rodo@cleanwhale.pl</a></p>
+      <footer>Fuel Now — дневник на устройстве. Без серверов, без трекинга, без OCR.</footer>
+    </article>
   </main>
+  <script>
+    const buttons = [...document.querySelectorAll(".langs button")];
+    const panels = [...document.querySelectorAll(".panel")];
+    const titles = { pl: "Fuel Now — Polityka prywatności", en: "Fuel Now — Privacy Policy", ru: "Fuel Now — Политика конфиденциальности" };
+    function setLang(lang) {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+      panels.forEach((p) => p.classList.toggle("active", p.dataset.lang === lang));
+      document.documentElement.lang = lang;
+      document.title = titles[lang] || titles.pl;
+      history.replaceState(null, "", "#" + lang);
+    }
+    buttons.forEach((b) => b.addEventListener("click", () => setLang(b.dataset.lang)));
+    const fromHash = location.hash.replace("#", "");
+    const fromNav = (navigator.language || "pl").slice(0, 2);
+    setLang(["pl", "en", "ru"].includes(fromHash) ? fromHash : (["pl", "en", "ru"].includes(fromNav) ? fromNav : "pl"));
+  </script>
 </body>
 </html>
